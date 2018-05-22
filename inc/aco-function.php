@@ -36,7 +36,7 @@ function search_and_send_abandon_order_canceled() {
  */
 function get_abandoned_orders_canceled_ids() {
 	global $wpdb;
-	$held_duration = ( aco_get_threshold() + aoe_get_threshold('bacs') );
+	$held_duration = aco_get_threshold();
 	$data_store    = WC_Data_Store::load( 'order' );
 	$now = strtotime( '-' . absint( $held_duration ) . ' SECONDS', current_time( 'timestamp' ) );
 	$prepare = $wpdb->prepare(
